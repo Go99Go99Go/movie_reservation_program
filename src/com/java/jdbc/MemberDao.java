@@ -70,6 +70,7 @@ public class MemberDao extends DBConnection {
 		try {
 			// email 과  pw가 일치하는 name을 검색하는 쿼리문
 			pstmt = con.prepareStatement("select * from member_tb where email = ? and pw = ?");
+			pstmt.setString(1, email);
 			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
